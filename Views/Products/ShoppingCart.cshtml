@@ -1,0 +1,47 @@
+﻿@model ShoppingListWebApp.Models.ShoppingCart
+
+@{
+    ViewData["Title"] = "ShoppingCart";
+}
+
+<h1>Shopping Cart</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SelectListItem)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        @foreach (var item in Model.ShoppingListCart)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+
+                </tr>
+
+         }
+    </tbody>
+
+</table>
+<p>
+    <h3>Total: $@Model.Total</h3>
+</p>
+<div>
+    <a asp-action="Index">Back to List</a><br />
+    <a asp-action="CheckoutCart">Checkout Cart</a>
+</div>
